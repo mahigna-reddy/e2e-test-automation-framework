@@ -1,134 +1,146 @@
-# E-Commerce UI + API Test Automation Framework
+# E-Commerce Checkout & Order Workflow Enhancement
 
-This project is an end-to-end automation framework built using **Java, Selenium, TestNG, Maven, and RestAssured**.
+## Project Overview
+This project focuses on improving and validating the end-to-end e-commerce customer journey from login to order confirmation. The goal is to ensure that key business workflows such as product selection, cart management, checkout, pricing validation, and order completion work as expected before release.
 
-It covers UI automation for an e-commerce demo website and API automation using a public product API.
+The project is documented from a Business Analyst and UAT perspective, with supporting end-to-end automation coverage to validate critical workflows.
 
-## Project Objective
+## Business Problem
+The business needed a reliable checkout experience where users could log in, browse products, add or remove items from the cart, validate pricing, complete checkout, and receive confirmation without workflow issues. Common risks included cart count mismatches, incorrect pricing, missing validation messages, navigation issues, and incomplete checkout behavior.
 
-The goal of this project is to demonstrate a real-world QA/SDET automation workflow that includes:
+## Project Objectives
+- Improve checkout workflow accuracy
+- Validate cart and pricing behavior
+- Ensure order confirmation works as expected
+- Support UAT readiness before release
+- Track defects and business impact clearly
+- Provide regression coverage for critical user journeys
 
-* UI test automation
-* API test automation
-* Page Object Model design
-* Explicit waits
-* Cart flow validation
-* Maven-based test execution
+## Role & Responsibilities
+As a Business Analyst / UAT Coordinator, responsibilities included:
 
-## Tech Stack
+- Analyzed login, product catalog, cart, checkout, and order confirmation workflows
+- Documented functional requirements, user stories, and acceptance criteria
+- Created UAT scenarios based on business rules and expected outcomes
+- Maintained requirement traceability between business needs, test scenarios, and validation results
+- Supported defect triage by reviewing issue severity, business impact, and expected behavior
+- Coordinated with QA and development teams to validate fixes and confirm release readiness
+- Prepared status updates covering UAT progress, defects, risks, and blockers
+- Supported end-to-end automation coverage for regression validation
 
-* Java
-* Selenium WebDriver
-* TestNG
-* Maven
-* WebDriverManager
-* RestAssured
-* GitHub
+## Stakeholders
+- Product Owner
+- Business Users
+- Business Analyst
+- QA Team
+- Development Team
+- Scrum Master
+- Support Team
 
-## Application Under Test
+## Scope
 
-### UI Testing
+### In Scope
+- User login validation
+- Product listing validation
+- Add to cart and remove from cart
+- Cart badge count validation
+- Product price validation
+- Checkout information validation
+- Order confirmation validation
+- Navigation and logout flow
+- UAT scenario creation
+- Defect tracking and reporting
 
-Demo Web Shop:
+### Out of Scope
+- Payment gateway integration
+- Real production order fulfillment
+- Customer support workflows
+- Inventory backend integration
 
-```text
-https://demowebshop.tricentis.com/
-```
+## Sample User Stories
 
-### API Testing
+### User Story 1: Login
+As a registered user, I want to log in with valid credentials so that I can access the product catalog.
 
-Fake Store API:
+**Acceptance Criteria:**
+- User should be able to log in with valid credentials
+- User should see an error message for invalid credentials
+- User should be redirected to the product listing page after successful login
 
-```text
-https://fakestoreapi.com/
-```
+### User Story 2: Add Product to Cart
+As a customer, I want to add products to my cart so that I can purchase them later.
 
-## Project Structure
+**Acceptance Criteria:**
+- User should be able to add a product to the cart
+- Cart badge count should update correctly
+- Added product should be visible on the cart page
 
-```text
-e2e-test-automation-framework
-├── src
-│   ├── main
-│   │   └── java
-│   │       └── pages
-│   │           ├── HomePage.java
-│   │           ├── SearchResultsPage.java
-│   │           ├── ProductDetailsPage.java
-│   │           └── CartPage.java
-│   └── test
-│       └── java
-│           └── tests
-│               ├── BaseTest.java
-│               ├── HomePageTests.java
-│               └── ProductApiTests.java
-├── pom.xml
-└── README.md
-```
+### User Story 3: Checkout
+As a customer, I want to complete checkout with valid information so that I can place my order successfully.
 
-## UI Test Scenarios
+**Acceptance Criteria:**
+- User should be able to enter checkout information
+- System should validate required fields
+- User should be able to review order summary
+- Order confirmation should be displayed after successful checkout
 
-The UI automation suite includes:
+## UAT Scenarios
 
-* Verify home page title
-* Verify product search functionality
-* Verify product can be added to cart
-* Verify added product is displayed in shopping cart
+| Scenario ID | UAT Scenario | Expected Result | Priority |
+|---|---|---|---|
+| UAT-001 | Validate successful login | User lands on product page | High |
+| UAT-002 | Validate invalid login | Error message is displayed | High |
+| UAT-003 | Add one product to cart | Cart count updates to 1 | High |
+| UAT-004 | Add multiple products to cart | Cart count updates correctly | High |
+| UAT-005 | Remove product from cart | Product is removed and count updates | Medium |
+| UAT-006 | Validate product price | Product price matches expected value | Medium |
+| UAT-007 | Complete checkout with valid details | Order confirmation is displayed | High |
+| UAT-008 | Validate logout flow | User returns to login page | Medium |
 
-## API Test Scenarios
+## Requirement Traceability Matrix
 
-The API automation suite includes:
+| Requirement ID | Requirement | User Story | UAT Scenario | Status |
+|---|---|---|---|---|
+| REQ-001 | User should be able to log in | US-001 | UAT-001 | Passed |
+| REQ-002 | Invalid login should show error | US-001 | UAT-002 | Passed |
+| REQ-003 | User should add products to cart | US-002 | UAT-003 | Passed |
+| REQ-004 | Cart count should update correctly | US-002 | UAT-004 | Passed |
+| REQ-005 | User should remove products from cart | US-002 | UAT-005 | Passed |
+| REQ-006 | Product price should be accurate | US-003 | UAT-006 | Passed |
+| REQ-007 | User should complete checkout | US-003 | UAT-007 | Passed |
+| REQ-008 | User should log out successfully | US-004 | UAT-008 | Passed |
 
-* Verify all products API returns success
-* Verify single product API returns valid product details
-* Verify product categories API returns data
+## Defect Tracking Approach
 
-## Framework Highlights
+Defects were reviewed based on:
+- Business impact
+- Severity and priority
+- Steps to reproduce
+- Expected vs actual result
+- Affected workflow
+- Release impact
 
-* Page Object Model for clean test structure
-* Reusable page classes
-* Common browser setup and teardown using `BaseTest`
-* Explicit waits for dynamic UI elements
-* Selenium WebDriver for UI testing
-* RestAssured for API testing
-* TestNG assertions for validation
-* Maven command-line execution
+Sample defect format:
 
-## How to Run Tests
+| Defect ID | Summary | Severity | Priority | Status |
+|---|---|---|---|---|
+| DEF-001 | Cart badge count not updating after adding product | High | High | Closed |
+| DEF-002 | Checkout allows blank first name | Medium | High | Closed |
+| DEF-003 | Product price mismatch on cart page | High | High | Closed |
 
-Install dependencies and run all tests:
+## Tools Used
+- Jira for user stories and defect tracking
+- Excel for RTM and UAT tracking
+- Confluence-style documentation
+- Java
+- Selenium WebDriver
+- TestNG
+- Maven
+- Page Object Model
+- GitHub
 
-```bash
-mvn test
-```
+## Outcome
+The project helped validate critical e-commerce workflows and improved visibility into checkout readiness. UAT scenarios, requirement traceability, and defect tracking helped confirm that login, cart, pricing, checkout, and order confirmation workflows met business expectations before release.
 
-Expected result:
-
-```text
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
-BUILD SUCCESS
-```
-
-## What I Practiced
-
-Through this project, I practiced:
-
-* Building a Selenium TestNG framework from scratch
-* Designing tests using Page Object Model
-* Handling dynamic UI synchronization using explicit waits
-* Automating product search and cart validation flows
-* Writing API tests using RestAssured
-* Running UI and API tests together using Maven
-* Debugging real automation failures like stale elements and timing issues
-
-## Future Enhancements
-
-* Add Extent Reports
-* Add screenshot capture on test failure
-* Add GitHub Actions CI pipeline
-* Add test data management
-* Add negative UI and API test cases
-* Add parallel test execution
-
-## Author
-
-Mahigna Reddy
+## Interview Summary
+This project demonstrates Business Analyst skills in requirement documentation, user story writing, acceptance criteria, UAT coordination, RTM maintenance, defect tracking, stakeholder communication, and release readiness validation, with supporting automation coverage for regression testing.
