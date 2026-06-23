@@ -16,17 +16,6 @@ The business needed a reliable checkout experience where users could log in, bro
 - Track defects and business impact clearly
 - Provide regression coverage for critical user journeys
 
-## Role & Responsibilities
-As a Business Analyst / UAT Coordinator, responsibilities included:
-
-- Analyzed login, product catalog, cart, checkout, and order confirmation workflows
-- Documented functional requirements, user stories, and acceptance criteria
-- Created UAT scenarios based on business rules and expected outcomes
-- Maintained requirement traceability between business needs, test scenarios, and validation results
-- Supported defect triage by reviewing issue severity, business impact, and expected behavior
-- Coordinated with QA and development teams to validate fixes and confirm release readiness
-- Prepared status updates covering UAT progress, defects, risks, and blockers
-- Supported end-to-end automation coverage for regression validation
 
 ## Stakeholders
 - Product Owner
@@ -37,25 +26,6 @@ As a Business Analyst / UAT Coordinator, responsibilities included:
 - Scrum Master
 - Support Team
 
-## Scope
-
-### In Scope
-- User login validation
-- Product listing validation
-- Add to cart and remove from cart
-- Cart badge count validation
-- Product price validation
-- Checkout information validation
-- Order confirmation validation
-- Navigation and logout flow
-- UAT scenario creation
-- Defect tracking and reporting
-
-### Out of Scope
-- Payment gateway integration
-- Real production order fulfillment
-- Customer support workflows
-- Inventory backend integration
 
 ## Sample User Stories
 
